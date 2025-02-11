@@ -31,11 +31,9 @@ struct HomeView: View {
             print("soundURLが取得できません")
             return
         }
-
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             audioPlayer?.play()
-            print("音は再生できてる")
         } catch {
             print("エラー: 音が再生できません")
         }
