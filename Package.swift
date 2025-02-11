@@ -17,7 +17,7 @@ let package = Package(
             name: "CharmGuard",
             targets: ["AppModule"],
             bundleIdentifier: "app.Saeki.dooon.CharmGuard",
-            teamIdentifier: "D8699ZRULU",
+            teamIdentifier: "WH355MYQDJ",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .boat),
@@ -37,8 +37,11 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "AppModule",
-            path: "."
+            path: ".",
+            resources: [
+                .process("Resources")
+            ]
         )
     ],
-    swiftLanguageVersions: [.v6]
+    swiftLanguageVersions: [.version("6")]
 )

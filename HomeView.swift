@@ -27,19 +27,24 @@ struct HomeView: View {
     
     
     func playBuzzerSound() {
-        if let soundURL = Bundle.module.url(forResource: "Warning", withExtension: "mp3") {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.play()
-            } catch {
-                print("エラー: 音が再生できません")
-            }
-        } else {
+        guard let soundURL = Bundle.main.url(forResource: "Warning", withExtension: "mp3") else {
             print("soundURLが取得できません")
+            return
+        }
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.play()
+            print("音は再生できてる")
+        } catch {
+            print("エラー: 音が再生できません")
         }
     }
-
 }
+    
+
+
+
 
 #Preview {
     HomeView()
